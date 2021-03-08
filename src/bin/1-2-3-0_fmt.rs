@@ -25,6 +25,13 @@ impl Display for City {
   }
 }
 
+#[derive(Debug)]
+struct Color {
+  red: u8,
+  green: u8,
+  blue: u8,
+}
+
 fn main() {
   for city in [
     City {
@@ -47,4 +54,34 @@ fn main() {
   {
     println!("{}", *city);
   }
+  // -> 以下のとおり出力
+  // ダブリン: 53.348°N 6.260°W
+  // オスロ: 59.950°N 10.750°E
+  // バンクーバー: 49.250°N 123.100°W
+
+  for color in [
+    Color {
+      red: 128,
+      green: 255,
+      blue: 90,
+    },
+    Color {
+      red: 0,
+      green: 3,
+      blue: 254,
+    },
+    Color {
+      red: 0,
+      green: 0,
+      blue: 0,
+    },
+  ]
+  .iter()
+  {
+    println!("{:?}", *color);
+  }
+  // -> 以下のとおり出力
+  // Color { red: 128, green: 255, blue: 90 }
+  // Color { red: 0, green: 3, blue: 254 }
+  // Color { red: 0, green: 0, blue: 0 }
 }
