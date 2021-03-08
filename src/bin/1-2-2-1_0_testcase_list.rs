@@ -10,8 +10,7 @@ impl fmt::Display for List {
     // 開始用のカッコを表示
     write!(f, "[")?;
 
-    for (count,v) in vec.iter().enumerate() {
-
+    for (count, v) in vec.iter().enumerate() {
       // 最初の要素以外はカンマを追加する
       // `count != 1`の書き方の場合以下のエラーが発生する
       // no implementation for `&i32 == {integer}`
@@ -19,7 +18,7 @@ impl fmt::Display for List {
         write!(f, ",")?;
       }
       // 要素番号と要素内情報を記載
-      write!(f, "{}: {}", count,v)?
+      write!(f, "{}: {}", count, v)?
     }
     // ここでfmt::Resultの値を返す
     write!(f, "]")
