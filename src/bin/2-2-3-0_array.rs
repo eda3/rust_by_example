@@ -20,4 +20,8 @@ fn main() {
   // `len()` は配列のサイズを返却する
   println!("array.len(): {}", xs.len());
   // -> array.len(): 5
+
+  // 配列はスタックの上に置かれる
+  println!("配列が占めるサイズは{}byte", mem::size_of_val(&xs));
+  // -> 配列が占めるサイズは20byte
 }
