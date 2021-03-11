@@ -37,4 +37,16 @@ fn main() {
   // 配列の一部分をスライスして借用する
   // sliceの第一要素: 0
   // sliceは3個の要素を持つ
+
+  // インデックスの範囲が配列のサイズを超えた場合パニックが発生する
+  // println!("{}", xs[5]);
+  // ビルド時に以下のエラーが発生
+  // --> src\bin\2-2-3-0_array.rs:42:18
+  //      |
+  //   42 |   println!("{}", xs[5]);
+  //      |                  ^^^^^ index out of bounds: the length is 5 but the index is 5
+  //      |
+  //      = note: `#[deny(unconditional_panic)]` on by default
+  //
+  // error: aborting due to previous error
 }
