@@ -52,4 +52,13 @@ fn main() {
     x: top_edge,
     y: left_edge,
   } = point;
+
+  // 構造体の定義とインスタンスの作成を同時に行う
+  let _rectangle = Rectangle {
+    top_left: Point {
+      x: left_edge,
+      y: top_edge,
+    },
+    bottom_right,
+  };
 }
