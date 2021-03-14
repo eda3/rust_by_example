@@ -8,4 +8,7 @@ struct Person<'a> {
 // ユニット
 struct Nil;
 
+// タプル
+struct Pair(i32, f32);
+
 fn main() {}
