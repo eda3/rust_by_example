@@ -5,4 +5,7 @@ struct Person<'a> {
   age: u8,
 }
 
+// ユニット
+struct Nil;
+
 fn main() {}
