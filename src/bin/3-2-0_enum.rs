@@ -16,9 +16,9 @@ fn inspect(event: WebEvent) {
     WebEvent::PageUnload => println!("page unloaded"),
     WebEvent::KeyPress(c) => println!("pressed {}", c),
     WebEvent::Paste(s) => println!("pasted {}", s),
-    WebEvent::Click { x, y} => {
+    WebEvent::Click { x, y } => {
       println!("clicked at x={}, y={}", x, y);
-    },
+    }
   }
 }
 
