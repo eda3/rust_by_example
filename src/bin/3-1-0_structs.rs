@@ -61,4 +61,13 @@ fn main() {
     },
     bottom_right,
   };
+
+  // ユニット構造体をインスタンス化
+  let _nil = Nil;
+
+  // タプル構造体をインスタンス化
+  let pair = Pair(1, 0.1);
+
+  // タプル構造体のフィールドにアクセス
+  println!("pairは{}と{}を含む", pair.0, pair.1);
 }
