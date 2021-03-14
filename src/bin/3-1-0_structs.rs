@@ -70,4 +70,10 @@ fn main() {
 
   // タプル構造体のフィールドにアクセス
   println!("pairは{}と{}を含む", pair.0, pair.1);
+  // -> pairは1と0.1を含む
+
+  // タプルをデストラクト
+  let Pair(integer, decimal) = pair;
+  println!("pairは{}と{}を含む", integer, decimal);
+  // -> pairは1と0.1を含む
 }
