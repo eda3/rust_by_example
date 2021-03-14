@@ -33,9 +33,17 @@ fn main() {
   // -> Person { name: "Peter", age: 27 }
 
   // struct Pointをインスタンス化
-  let point: Point = Point { x: 10.3, y: 0.4};
+  let point: Point = Point { x: 10.3, y: 0.4 };
 
   // pointのフィールドにアクセス
   println!("point.x:{}, point.y:{}", point.x, point.y);
   // -> point.x:10.3, point.y:0.4
+
+  // `..point` といった構文を使うことで他インスタンスの設定値を流用できる
+  let bottom_right = Point { x: 5.2, ..point };
+  println!(
+    "bottom_right.x:{}, bottom_right.y:{}",
+    bottom_right.x, bottom_right.y
+  );
+  // -> bottom_right.x:10.3, bottom_right.y:0.4
 }
