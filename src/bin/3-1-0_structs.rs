@@ -31,4 +31,11 @@ fn main() {
   let perter = Person { name, age };
   println!("{:?}", perter);
   // -> Person { name: "Peter", age: 27 }
+
+  // struct Pointをインスタンス化
+  let point: Point = Point { x: 10.3, y: 0.4};
+
+  // pointのフィールドにアクセス
+  println!("point.x:{}, point.y:{}", point.x, point.y);
+  // -> point.x:10.3, point.y:0.4
 }
