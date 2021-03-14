@@ -46,4 +46,10 @@ fn main() {
     bottom_right.x, bottom_right.y
   );
   // -> bottom_right.x:10.3, bottom_right.y:0.4
+
+  // letを使ってpointをデストラクトする
+  let Point {
+    x: top_edge,
+    y: left_edge,
+  } = point;
 }
