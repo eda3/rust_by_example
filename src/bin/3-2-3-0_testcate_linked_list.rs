@@ -33,6 +33,18 @@ impl List {
       Nil => 0,
     }
   }
+
+  // List内の要素を出力
+  fn stringify(&self) -> String {
+    match *self {
+      Cons(head, ref tail) => {
+        format!("{}, {}", head, tail.stringify())
+      }
+      Nil => {
+        format!("Nil")
+      }
+    }
+  }
 }
 
 fn main() {
@@ -48,4 +60,6 @@ fn main() {
 
   // 追加後の状態を表示
   println!("list.len: {}", list.len());
+  println!("{}", list.stringify());
+  // -> 3, 2, 1, Nil
 }
