@@ -20,4 +20,9 @@ fn main() {
   println!("Two: {}", Number::Two as i32);
   // -> Three: 0
   // -> Two: 1
+
+  println!("薔薇は#{:06x}", Color::Red as i32);
+  println!("スミレは#{:06x}", Color::Blue as i32);
+  // -> 薔薇は#ff0000
+  // -> スミレは#0000ff
 }
