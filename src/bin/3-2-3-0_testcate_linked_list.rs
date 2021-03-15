@@ -6,4 +6,13 @@ enum List {
   Nil,
 }
 
+// 列挙型にはメソッドを付与することができる
+impl List {
+  // 空リストの作成
+  fn new() -> List {
+    // `Nil` は `List`型を持つ
+    Nil
+  }
+}
+
 fn main() {}
