@@ -2,9 +2,9 @@
 
 // 値を明示しない場合、0から整数が入る
 enum Number {
-  Zero,
-  One,
+  Three,
   Two,
+  One,
 }
 
 // 値を明示する場合
@@ -14,4 +14,10 @@ enum Color {
   Blue = 0x0000ff,
 }
 
-fn main() {}
+fn main() {
+  // 列挙型の中身を整数としてキャスト
+  println!("Three: {}", Number::Three as i32);
+  println!("Two: {}", Number::Two as i32);
+  // -> Three: 0
+  // -> Two: 1
+}
