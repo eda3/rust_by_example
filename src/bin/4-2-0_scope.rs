@@ -13,4 +13,10 @@ fn main() {
     println!("long_lived_binding: {}", long_lived_binding);
     // -> long_lived_binding: 5
   }
+
+  // Error! short_lived_bindingはこのスコープ内に存在しないためエラーとなる
+  // println!("short_lived_binding: {}", short_lived_binding);
+  // |
+  // |   println!("short_lived_binding: {}", short_lived_binding);
+  // |                                       ^^^^^^^^^^^^^^^^^^^ help: a local variable with a similar name exists: `long_lived_binding`
 }
