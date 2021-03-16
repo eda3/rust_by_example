@@ -19,4 +19,12 @@ fn main() {
   // |
   // |   println!("short_lived_binding: {}", short_lived_binding);
   // |                                       ^^^^^^^^^^^^^^^^^^^ help: a local variable with a similar name exists: `long_lived_binding`
+
+  println!("long_lived_binding: {}", long_lived_binding);
+  // -> long_lived_binding: 1
+
+  // 以前に定義した変数を **シャドーイング** する
+  let long_lived_binding = 'a';
+  println!("long_lived_binding: {}", long_lived_binding);
+  // -> long_lived_binding: a
 }
