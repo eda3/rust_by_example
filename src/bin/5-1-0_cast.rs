@@ -22,6 +22,21 @@ fn main() {
   // 明示的な型変換
   let integer = decimal as u8;
   let character = integer as char;
-  println!("キャスティング: {} -> {} -> {}", decimal, integer, character);
+  println!(
+    "キャスティング: {} -> {} -> {}",
+    decimal, integer, character
+  );
   // -> キャスティング: 64.4321 -> 64 -> @
+
+  // ### キャスティングによる値の変化
+  // 何らかの値を符号なしの型(T)へキャスティングすると、
+  // 値がTに収まるまでstd::T::MAX + 1 が加算あるいは減算される
+
+  // 1000はすでにu16の範囲に収まっているため変化しない
+  println!("1000 as u16: {}", 1000 as u16);
+  // -> 1000 as u16: 1000
+
+  // 1000はu8の範囲に収まっていないため変化する
+  println!("1000 as u8: {}", 1000 as u8);
+  // -> 1000 as u8: 232
 }
