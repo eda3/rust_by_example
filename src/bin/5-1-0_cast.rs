@@ -19,5 +19,9 @@ fn main() {
   //
   // error: aborting due to previous error
 
-
+  // 明示的な型変換
+  let integer = decimal as u8;
+  let character = integer as char;
+  println!("キャスティング: {} -> {} -> {}", decimal, integer, character);
+  // -> キャスティング: 64.4321 -> 64 -> @
 }
