@@ -10,4 +10,9 @@ fn main() {
     // |     _mutable_integer = 50;
     // |     ^^^^^^^^^^^^^^^^^^^^^ cannot assign twice to immutable variable
   }
+
+  // OK! _mutable_integerはこのスコープではフリーズしていない
+  _mutable_integer = 3;
+  println!("_mutable_integer: {}", _mutable_integer);
+  // -> _mutable_integer: 3
 }
