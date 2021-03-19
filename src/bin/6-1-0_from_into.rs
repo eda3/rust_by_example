@@ -30,4 +30,9 @@ impl From<i32> for Number {
   }
 }
 
-fn main() {}
+fn main() {
+  // ### From
+  let num = Number::from(30);
+  println!("My number is {:?}", num);
+  // -> My number is Number { value: 30 }
+}
