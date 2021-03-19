@@ -13,11 +13,11 @@ fn main() {
   // 1 - 2 = -1
 
   // 単純な論理演算子
-  println!("true AND false は {}", true && false) ;
+  println!("true AND false は {}", true && false);
   // -> true AND false は false
-  println!("true OR false は {}", true || false) ;
+  println!("true OR false は {}", true || false);
   // -> true OR  false は true
-  println!("NOT true は {}", !true) ;
+  println!("NOT true は {}", !true);
   // -> NOT true は false
 
   // ビットワイズ演算
