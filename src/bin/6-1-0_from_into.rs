@@ -17,4 +17,11 @@
 // There are numerous implementations of this trait within the standard library for conversion of primitive and common types.
 // 標準ライブラリには、プリミティブ型と共通型の変換のために、このtraitの多くの実装があります。
 
+use std::convert::From;
+
+#[derive(Debug)]
+struct Number {
+  value: i32,
+}
+
 fn main() {}
