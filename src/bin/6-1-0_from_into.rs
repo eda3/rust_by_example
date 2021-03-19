@@ -26,13 +26,33 @@ struct Number {
 
 impl From<i32> for Number {
   fn from(item: i32) -> Self {
-    Number { value: item}
+    Number { value: item }
   }
 }
+
+// ### Into
+// The Into trait is simply the reciprocal of the From trait.
+// Into traitは、単純にFrom traitの逆数です。
+
+// That is, if you have implemented the From trait for your type, Into will call it when necessary.
+// つまり、自分の型にFrom形質を実装していれば、Intoは必要に応じてそれを呼び出します。
+
+// Using the Into trait will typically require specification of the type to convert into as the compiler is unable to determine this most of the time.
+// Into traitを使用する際には、変換先の型を指定する必要がありますが、これはコンパイラがほとんどの場合判断できないためです。
+
+// However this is a small trade-off considering we get the functionality for free.
+// しかし、この機能を無料で手に入れられることを考えると、これは小さなトレードオフです。
 
 fn main() {
   // ### From
   let num = Number::from(30);
   println!("My number is {:?}", num);
   // -> My number is Number { value: 30 }
+
+  // ### Into
+  let int = 5;
+  // Try removing the type declaration
+  let num: Number = int.into();
+  println!("My number is {:?}", num);
+  // -> My number is Number { value: 5 }
 }
