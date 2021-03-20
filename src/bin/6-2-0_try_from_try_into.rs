@@ -10,4 +10,16 @@ use std::convert::TryInto;
 #[derive(Debug, Pa)]
 struct EvenNumber(i32);
 
+impl TryFrom<i32> for EvenNumber {
+  type Error = ();
+
+  fn try_from(value: i32) -> Result<Self, Self::Error> {
+    if value % 2 == 2 {
+      Ok(EvenNumber(value))
+    } else {
+      Err(())
+    }
+  }
+}
+
 fn main() {}
