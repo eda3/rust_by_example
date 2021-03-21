@@ -83,4 +83,7 @@ fn main() {
 
   // クロージャを適用する関数を実行
   apply(diary);
+
+  let double = |x| 2 * x;
+  println!("3 doubled: {}", apply_to_3(double));
 }
