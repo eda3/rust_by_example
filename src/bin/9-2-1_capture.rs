@@ -22,4 +22,36 @@ fn main() {
   let _color_moved = color;
   print();
   // -> color: green
+
+  let mut count = 0;
+
+  // countをインクリメントするためのクロージャ。countと&mut countの両方をとることができるが、後者のほうが制限が
+  // 少ないため、そちらをとる。直後にcountを借用する
+  let mut inc = || {
+    count += 1;
+    println!("count: {}", count);
+  };
+
+  // クロージャを実行
+  inc();
+
+  // 再度借用を行おうとするとエラーになる
+  // 理由はクロージャがあとで呼ばれるため
+  // let _reborrow = &count;
+
+  // コンパイル絵エラーメッセージは以下のとおり
+  //   |   let mut inc = || {
+  //
+  //   |                 -- mutable borrow occurs here
+  //   |     count += 1;
+  //   |     ----- first borrow occurs due to use of `count` in closure
+  //     ...
+  //   |   let _reborrow = &count;
+  //   |                   ^^^^^^ immutable borrow occurs here
+  //   |
+  //   |   inc();
+  //   |   --- mutable borrow later used here
+
+  inc();
+
 }
