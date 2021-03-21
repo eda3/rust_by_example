@@ -18,12 +18,12 @@ impl fmt::Display for Circle {
 }
 
 fn main() {
-  let circle = Circle { radius: 6};
+  let circle = Circle { radius: 6 };
   println!("{}", circle.to_string());
   // -> Circleの半径は6
   println!("{:?}", circle);
   // -> Circle { radius: 6 }
-  println!("{:?}", circle.to_string())
+  println!("{:?}", circle.to_string());
   // -> "Circleの半径は6"
 
   // One of the more common types to convert a string into is a number.
@@ -46,6 +46,12 @@ fn main() {
 
   // To obtain this functionality on a user defined type simply implement the FromStr trait for
   // that type.
-  // ユーザー定義の型でこの機能を利用するには、その型のFromStr形質を実装するだけです。
+  // ユーザー定義の型でこの機能を利用するには、その型のFromStr traitを実装するだけです。
 
+  let parsed: i32 = "5".parse().unwrap();
+  let turbo_parsed = "10".parse::<i32>().unwrap();
+
+  let sum = parsed + turbo_parsed;
+  println!("Sum: {:?}", sum);
+  // Sum: 15
 }
