@@ -5,6 +5,7 @@
 
 use std::fmt;
 
+#[derive(Debug)]
 struct Circle {
   radius: i32,
 }
@@ -15,4 +16,12 @@ impl fmt::Display for Circle {
   }
 }
 
-fn main() {}
+fn main() {
+  let circle = Circle { radius: 6};
+  println!("{}", circle.to_string());
+  // -> Circleの半径は6
+  println!("{:?}", circle);
+  // -> Circle { radius: 6 }
+  println!("{:?}", circle.to_string())
+  // -> "Circleの半径は6"
+}
