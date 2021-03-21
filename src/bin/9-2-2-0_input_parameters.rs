@@ -61,4 +61,26 @@ where
 {
   f(3)
 }
-fn main() {}
+fn main() {
+  use std::mem;
+
+  let greeting = "hello";
+  // コピーではなくmoveが起きる型
+  let mut farewell = "goodby".to_owned();
+
+  // 変数を2つ捕捉。greetingは参照を、farewellは値をそれぞれ捕捉する
+  let diary = || {
+    // greetingは参照なのでFnが必要
+    println!("I said {}.", greeting);
+
+    // farewellの値を変更するのでこの時点でFnMutが必要になる
+    farewell.push_str("!!!");
+    println!("Then I screamed {}.", farewell);
+
+    // mem::dropを明示的に呼ぶとfarewellが値で捕捉される必要性が発生する。よってFnOnceが必要になる。
+    mem::drop(farewell);
+  };
+
+  // クロージャを適用する関数を実行
+  apply(diary);
+}
