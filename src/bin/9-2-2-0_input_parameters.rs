@@ -42,14 +42,23 @@
 // In the following example, try swapping the usage of Fn, FnMut, and FnOnce to see what happens:
 // 次の例では、Fn、FnMut、FnOnceの使い方を入れ替えてみて、何が起こるかを見てみましょう。
 
-
 // A function which takes a closure as an argument and calls it.
 // クロージャを引数に取り、それを呼び出す関数です。
 // <F> denotes that F is a "Generic type parameter"
 // <F>はFが "Generic type parameter "であることを示す。
-fn apply<F>(f: F) where
-  F: FnOnce() {
-
+fn apply<F>(f: F)
+where
+  F: FnOnce(),
+{
   f();
+}
+
+// クロージャを引数に取り、`i32`を返す関数
+fn apply_to_3<F>(f: F) -> i32
+where
+  // このクロージャは引数、返り値ともにi32
+  F: Fn(i32) -> i32,
+{
+  f(3)
 }
 fn main() {}
