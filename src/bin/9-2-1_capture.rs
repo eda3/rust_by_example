@@ -10,4 +10,16 @@ fn main() {
   // 借用を行ったクロージャをコールする
   print();
   // -> color: green
+
+  let _reborrow = &color;
+  print();
+  // -> color: green
+
+  // `color` can be borrowed immutably again, because the closure only holds an immutable reference
+  // to `color`.
+  // color は再び不変的に借用することができます。なぜなら、クロージャは`colorへの不変的な参照のみを保持
+  // するからです。
+  let _color_moved = color;
+  print();
+  // -> color: green
 }
