@@ -14,4 +14,14 @@ fn main() {
     _ => println!("特になし"),
   }
   // -> 13から19の間
+
+  let boolean = true;
+  // matchは式でもある
+  let binary = match boolean {
+    // マッチは全ての可能な値をカバーしなくてはならない
+    false => 0,
+    true => 1,
+  };
+  println!("{} -> {}", boolean, binary);
+  // -> true -> 1
 }
