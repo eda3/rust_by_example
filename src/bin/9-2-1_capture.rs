@@ -34,6 +34,7 @@ fn main() {
 
   // クロージャを実行
   inc();
+  // -> count: 1
 
   // 再度借用を行おうとするとエラーになる
   // 理由はクロージャがあとで呼ばれるため
@@ -53,5 +54,27 @@ fn main() {
   //   |   --- mutable borrow later used here
 
   inc();
+  // -> count: 2
 
+  let movable = Box::new(3);
+  // 参照ではなく値を取る。その場合、もしもコピー可能な値ならば、
+  // 元の値はそのままでコピーのみを取る。不可能ならば値そのものを移動させる。
+
+  let consume = || {
+    println!("movable: {:?}", movable);
+    mem::drop(movable);
+  };
+
+  // consumeは変数を消費(開放)するため、一度しか呼び出すことができない
+  consume();
+  // -> movable: 3
+
+  // もう一度実行しようとするとエラーになる
+  // consume();
+  // |
+  // |   consume();
+  // |   --------- `consume` moved due to this call
+  //   ...
+  // |   consume();
+  // |   ^^^^^^^ value used here after move
 }
