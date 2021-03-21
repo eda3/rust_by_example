@@ -9,4 +9,10 @@ struct Circle {
   radius: i32,
 }
 
+impl fmt::Display for Circle {
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    write!(f, "Circleの半径は{}", self.radius)
+  }
+}
+
 fn main() {}
