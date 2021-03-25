@@ -5,4 +5,14 @@ where
 {
   f();
 }
-fn main() {}
+fn main() {
+  let x = 7;
+
+  // xを無名の構造体に入れ、それにたいしてFnを実装する
+  // ※ここではFnは fn Fn(&self) ->  println!("{}", &self)
+  // その構造体をprintにアサインする
+  let print = || println!("{}", x);
+
+  apply(print);
+  // -> 7
+}
