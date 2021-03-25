@@ -29,4 +29,11 @@ fn create_fnmut() -> impl FnMut() {
 
   move || println!("これは{}()", text)
 }
+
+fn create_fnonce() -> impl FnOnce() {
+  let text = "FnOnce".to_owned();
+
+  move || println!("これは{}()", text)
+}
+
 fn main() {}
