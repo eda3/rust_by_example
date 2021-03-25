@@ -23,4 +23,10 @@ fn create_fn() -> impl Fn() {
   let text = "Fn".to_owned();
   move || println!("これは{}()", text)
 }
+
+fn create_fnmut() -> impl FnMut() {
+  let text = "FnMut".to_owned();
+
+  move || println!("これは{}()", text)
+}
 fn main() {}
