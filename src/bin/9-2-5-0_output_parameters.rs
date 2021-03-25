@@ -36,4 +36,28 @@ fn create_fnonce() -> impl FnOnce() {
   move || println!("これは{}()", text)
 }
 
-fn main() {}
+fn main() {
+  let fn_plain = create_fn();
+  let mut fn_mut = create_fnmut();
+  let fn_once = create_fnonce();
+
+  fn_plain();
+  fn_plain();
+  // -> これはFn()
+  // -> これはFn()
+
+  fn_mut();
+  fn_mut();
+  // -> これはFn()
+  // -> これはFn()
+
+  fn_once();
+  // -> これはFnOnce()
+
+  // fn_once();
+  // fn_once()を二回実行しようとするとエラーになる
+  // |   fn_once();
+  // |   --------- `fn_once` moved due to this call
+  // |   fn_once();
+  // |   ^^^^^^^ value used here after move
+}
