@@ -7,4 +7,12 @@ fn function() {
   println!("私は関数！");
 }
 
-fn main() {}
+fn main() {
+  let closure = || println!("私はクロージャ！");
+
+  call_me(closure);
+  // -> 私はクロージャ！
+
+  call_me(function);
+  // -> 私は関数！
+}
