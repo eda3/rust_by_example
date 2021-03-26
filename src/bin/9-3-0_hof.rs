@@ -22,4 +22,13 @@ fn main() {
   }
   println!("宣言型スタイル： {}", acc);
   // -> 宣言型スタイル： 5456
+
+  // 関数型スタイルによるアプローチ
+  let sum_of_squared_odd_numbers = (0..)
+    .map(|n| n * n) // 全自然数を自乗し
+    .take_while(|n_squared| n_squared < &upper) // 上限より小さい値を抽出
+    .filter(|&n_squared| is_odd(n_squared)) // 奇数抽出
+    .fold(0, |acc, n_squared| acc + n_squared); // 足し合わせる
+  println!("関数型: {:?}", sum_of_squared_odd_numbers);
+  // -> 関数型: 5456
 }
