@@ -15,5 +15,12 @@ mod my_mod {
     println!("my_mod::indirect_access()が呼ばれました！");
     println!("my_mod::private_function()を呼びます！");
   }
+
+  // モジュール内でネストすることも可能です
+  pub mod nested {
+    pub fn function() {
+      println!("my_mod::nested::function()が呼ばれました！");
+    }
+  }
 }
 fn main() {}
