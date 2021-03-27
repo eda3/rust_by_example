@@ -4,5 +4,10 @@ mod my_mod {
   fn private_function() {
     println!("my_mod::private_function()が呼ばれました！");
   }
+
+  // pubを用いてパブリックに変更
+  pub fn function() {
+    println!("my_mod::function()が呼ばれました！");
+  }
 }
 fn main() {}
