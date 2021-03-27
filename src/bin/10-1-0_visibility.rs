@@ -9,5 +9,11 @@ mod my_mod {
   pub fn function() {
     println!("my_mod::function()が呼ばれました！");
   }
+
+  // モジュール内からならば、プライベートな属性にアクセスすることに支障はなし
+  pub fn indirect_access() {
+    println!("my_mod::indirect_access()が呼ばれました！");
+    println!("my_mod::private_function()を呼びます！");
+  }
 }
 fn main() {}
