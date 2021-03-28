@@ -21,6 +21,11 @@ mod my_mod {
     pub fn function() {
       println!("my_mod::nested::function()が呼ばれました！");
     }
+
+    #[allow(dead_code)]
+    fn private_function() {
+      println!("my_mod::nested::private_function()が呼ばれました！");
+    }
   }
 }
 fn main() {}
