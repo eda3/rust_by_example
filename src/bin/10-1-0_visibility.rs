@@ -42,6 +42,12 @@ mod my_mod {
     pub(self) fn public_function_in_nested() {
       println!("my_mod::nested::public_function_in_nested()が呼ばれました！");
     }
+
+    // Functions declared using `pub(super)` syntax are only visible within the parent module
+    // pub(super)`構文で宣言された関数は、親モジュール内でのみ表示されます。
+    pub(super) fn public_function_in_super_mod() {
+      println!("my_mod::nested::public_function_in_super_mod()が呼ばれました！");
+    }
   }
 }
 fn main() {}
