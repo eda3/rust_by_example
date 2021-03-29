@@ -35,6 +35,13 @@ mod my_mod {
     pub(in crate::my_mod) fn public_function_in_my_mod() {
       println!("my_mod::nested::public_function_in_my_modが呼ばれました！");
     }
+    // Functions declared using `pub(self)` syntax are only visible within the current module, which
+    // is the same as leaving them private
+    // pub(self)`構文を使って宣言された関数は，現在のモジュール内でしか見ることができませんが，これはprivateに
+    // しているのと同じです。
+    pub(self) fn public_function_in_nested() {
+      println!("my_mod::nested::public_function_in_nested()が呼ばれました！");
+    }
   }
 }
 fn main() {}
