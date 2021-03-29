@@ -80,4 +80,9 @@ mod my_mod {
     }
   }
 }
+
+fn function() {
+  println!("function()が呼ばれました！");
+}
+
 fn main() {}
