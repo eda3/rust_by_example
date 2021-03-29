@@ -1,5 +1,7 @@
 // my_mod という名称のモジュール
 mod my_mod {
+  use std::intrinsics::needs_drop;
+
   // モジュール内の要素はデフォルトでプライベート
   fn private_function() {
     println!("my_mod::private_function()が呼ばれました！");
@@ -48,6 +50,12 @@ mod my_mod {
     pub(super) fn public_function_in_super_mod() {
       println!("my_mod::nested::public_function_in_super_mod()が呼ばれました！");
     }
+  }
+
+  pub fn call_public_function_in_my_mod() {
+    println!("my_mod::call_public_function_in_my_mod()が呼ばれました！");
+    nested::public_function_in_my_mod();
+    nested::public_function_in_super_mod();
   }
 }
 fn main() {}
