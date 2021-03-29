@@ -57,5 +57,11 @@ mod my_mod {
     nested::public_function_in_my_mod();
     nested::public_function_in_super_mod();
   }
+
+  // pub(crate) makes functions visible only within the current crate
+  // pub(crate)は、現在のcrate内でのみ関数を表示します。
+  pub(crate) fn public_function_in_crate() {
+    println!("my_mod::public_function_in_crateが呼ばれました！");
+  }
 }
 fn main() {}
