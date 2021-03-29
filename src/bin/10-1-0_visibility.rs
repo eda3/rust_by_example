@@ -26,6 +26,15 @@ mod my_mod {
     fn private_function() {
       println!("my_mod::nested::private_function()が呼ばれました！");
     }
+    // Functions declared using `pub(in path)` syntax are only visible within the given path.
+    // `path` must be a parent or ancestor module
+    // pub(in path)構文を使って宣言された関数は、与えられたパスの中でのみ表示されます。
+
+    // `path` must be a parent or ancestor module
+    // path は親または先祖のモジュールでなければなりません。
+    pub(in crate::my_mod) fn public_function_in_my_mod() {
+      println!("my_mod::nested::public_function_in_my_modが呼ばれました！");
+    }
   }
 }
 fn main() {}
