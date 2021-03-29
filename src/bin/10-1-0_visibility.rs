@@ -63,5 +63,13 @@ mod my_mod {
   pub(crate) fn public_function_in_crate() {
     println!("my_mod::public_function_in_crateが呼ばれました！");
   }
+
+  // ネストしたモジュールも同様の性質を示します。
+  mod private_nested {
+    #[allow(dead_code)]
+    pub fn function() {
+      println!("my_mod::private_nested::function()");
+    }
+  }
 }
 fn main() {}
