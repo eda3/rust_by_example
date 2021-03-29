@@ -70,6 +70,14 @@ mod my_mod {
     pub fn function() {
       println!("my_mod::private_nested::function()");
     }
+    // Private parent items will still restrict the visibility of a child item, even if it is
+    // declared as visible within a bigger scope.
+    // 非公開の親アイテムは、子アイテムがより大きなスコープ内で可視であると宣言されていても、子アイテムの可視性を
+    // 制限します。
+    #[allow(de)]
+    pub(crate) fn restricted_function() {
+      println!("my_mod::private_nested::restricted_function()が呼ばれました！");
+    }
   }
 }
 fn main() {}
