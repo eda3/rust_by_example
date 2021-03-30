@@ -95,4 +95,19 @@ fn main() {
   // pub(in path)アイテムは、指定されたモジュール内からのみ呼び出すことができます。
   // Error! function `public_function_in_my_mod` is private
   // my_mod::nested::public_function_in_my_mod();
+
+  // プライベートな要素は、たとえパブリックなモジュール内に存在していても
+  // 直接アクセスすることはできません。
+
+  // Error! `private_function` is private
+  // my_mod::private_function();
+
+  // Error! `private_function` is private
+  // my_mod::nested::private_function();
+
+  // Error! `private_nested` is a private module
+  // my_mod::private_nested::function();
+
+  // Error! `private_nested` is a private module
+  // my_mod::private_nested::restricted_function();
 }
