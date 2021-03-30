@@ -1,6 +1,5 @@
 // my_mod という名称のモジュール
 mod my_mod {
-  use std::intrinsics::needs_drop;
 
   // モジュール内の要素はデフォルトでプライベート
   fn private_function() {
@@ -85,4 +84,8 @@ fn function() {
   println!("function()が呼ばれました！");
 }
 
-fn main() {}
+fn main() {
+  // モジュールによって、同名の関数を区別することができる。
+  function();
+  my_mod::function();
+}
