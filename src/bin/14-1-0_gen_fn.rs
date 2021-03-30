@@ -15,4 +15,9 @@ fn reg_fn(_s: S) {}
 // としては取らない
 fn gen_spec_t(_s: SGen<A>) {}
 
+// `gen_spec_i32`という関数を定義。
+// これは明示的な型パラメータとして`i32`を与えられた`Sgen<i32>`型の引数`_s`をとる
+// この関数もジェネリックではない
+fn gen_spec_i32(_s: SGen<i32>) {}
+
 fn main() {}
