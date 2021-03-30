@@ -20,4 +20,8 @@ fn gen_spec_t(_s: SGen<A>) {}
 // この関数もジェネリックではない
 fn gen_spec_i32(_s: SGen<i32>) {}
 
+// `generic`という関数を定義。`SGen<T>`という型の引数`_s`を取る。`<T>`が`SGen<T>`に
+// 先行しているため、これはTに対してジェネリックな関数
+fn generic<T>(_s: SGen<T>) {}
+
 fn main() {}
