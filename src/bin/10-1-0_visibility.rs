@@ -91,4 +91,8 @@ fn main() {
 
   my_mod::function();
   // -> my_mod::function()が呼ばれました！
+
+  // pub(in path)アイテムは、指定されたモジュール内からのみ呼び出すことができます。
+  // Error! function `public_function_in_my_mod` is private
+  // my_mod::nested::public_function_in_my_mod();
 }
