@@ -87,5 +87,8 @@ fn function() {
 fn main() {
   // モジュールによって、同名の関数を区別することができる。
   function();
+  // -> function()が呼ばれました！
+
   my_mod::function();
+  // -> my_mod::function()が呼ばれました！
 }
