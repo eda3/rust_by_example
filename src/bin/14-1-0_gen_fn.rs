@@ -24,4 +24,17 @@ fn gen_spec_i32(_s: SGen<i32>) {}
 // 先行しているため、これはTに対してジェネリックな関数
 fn generic<T>(_s: SGen<T>) {}
 
-fn main() {}
+fn main() {
+  // ジェネリックでない関数を使用する
+  reg_fn(S(A)); // 具象型
+
+  gen_spec_t(SGen(A)); // 型パラメータ`A`を暗黙のうちに受け取る
+
+  gen_spec_i32(SGen(6)); // 型パラメータ`i32`を暗黙のうちに受け取る
+
+  // 型パラメータ `char` を `generic()` に明示的に指定
+  generic::<char>(SGen('a'));
+
+  // 型パラメータ`char`を暗黙的に`generic()`に渡す
+  generic(SGen('c'));
+}
