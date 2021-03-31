@@ -26,10 +26,16 @@ struct GenVal<T> {
 }
 
 // ジェネリック型`T`の場合のメソッドをGenValに対して実装
-impl<T> GenericVal<T> {
+impl<T> GenVal<T> {
   fn value(&self) -> &T {
     &self.gen_val
   }
 }
 
-fn main() {}
+fn main() {
+  let x = Val { val: 3.0 };
+  let y = GenVal { gen_val: 3i32 };
+
+  println!("x:{}, y:{}", x.value(), y.value());
+  // x:3, y:3
+}
