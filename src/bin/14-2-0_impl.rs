@@ -10,4 +10,26 @@ impl GenericVal<S> {} // 上で定義した`S`への実装
 // ジェネリック型のまま扱うには`<T>`が先に来る必要がある。
 impl<T> GenericVal<T> {}
 
+struct Val {
+  val: f64,
+}
+
+// Valに対してimpl
+impl Val {
+  fn value(&self) -> &f64 {
+    &self.val
+  }
+}
+
+struct GenVal<T> {
+  gen_val: T,
+}
+
+// ジェネリック型`T`の場合のメソッドをGenValに対して実装
+impl<T> GenericVal<T> {
+  fn value(&self) -> &T {
+    &self.gen_val
+  }
+}
+
 fn main() {}
