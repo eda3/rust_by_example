@@ -17,4 +17,25 @@ impl<T, U> DoubleDrop<T> for U {
   fn double_drop(self, _: T) {}
 }
 
-fn main() {}
+fn main() {
+  let empty = Empty;
+  let null = Null;
+
+  // `empty`と`null`を開放
+  empty.double_drop(null);
+
+  // empty;
+  // null;
+  // ^ TODO: Try uncommenting these lines.
+  // ^ TODO: これらの行をアンコメントしてみましょう。
+  // エラーメッセージ
+  // |   let empty = Empty;
+  // |       ----- move occurs because `empty` has type `Empty`, which does not implement the
+  // |             `Copy` trait
+  //   ...
+  // |   empty.double_drop(null);
+  // |         ----------------- `empty` moved due to this method call
+  // |
+  // |   empty;
+  // |   ^^^^^ value used here after move
+}
