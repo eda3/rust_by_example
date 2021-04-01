@@ -23,4 +23,9 @@ struct Triangle {
   height: f64,
 }
 
+// ジェネリック型`T`は`Debug`トレイトを実装していなくてはならない。
+// その限りにおいて、`T`がどのような具象型であろうとも次の関数は動作する。
+fn print_debug<T: Debug>(t: T) {
+  println!("{:?}", t);
+}
 fn main() {}
