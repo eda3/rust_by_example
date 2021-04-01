@@ -28,4 +28,11 @@ struct Triangle {
 fn print_debug<T: Debug>(t: T) {
   println!("{:?}", t);
 }
+
+// 「`T`は`HasArea`を実装していなくてはならない」という境界条件を
+// 満たしていれば、`HasArea`の関数`area`にアクセスできる。
+fn area<T: HasArea>(t: &T) -> f64 {
+  t.area()
+}
+
 fn main() {}
