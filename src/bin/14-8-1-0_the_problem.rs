@@ -36,4 +36,26 @@ where
   container.last() - container.first()
 }
 
-fn main() {}
+fn main() {
+  let number_1 = 3;
+  let number_2 = 10;
+
+  let container = Container(number_1, number_2);
+
+  println!(
+    "containerは{}と{}を保持しています:{}",
+    &number_1,
+    &number_2,
+    container.contains(&number_1, &number_2)
+  );
+  // -> containerは3と10を保持しています:true
+
+  println!("最初の数字：{}", container.first());
+  // -> 最初の数字：3
+
+  println!("最後の数字:{}", container.last());
+  // -> 最後の数字:10
+
+  println!("数字の差:{}", difference(&container));
+  // -> 数字の差:7
+}
