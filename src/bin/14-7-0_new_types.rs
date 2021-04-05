@@ -7,6 +7,12 @@ impl Years {
   }
 }
 
+impl Days {
+  pub fn to_years(&self) -> Years {
+    Years(self.0 / 365)
+  }
+}
+
 fn old_enough(age: &Years) -> bool {
   age.0 >= 18
 }
