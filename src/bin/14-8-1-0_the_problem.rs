@@ -10,4 +10,21 @@ trait Contains<A, B> {
   fn last(&self) -> i32; // `A`、`B`いずれも要求しない
 }
 
+impl Contains<i32, i32> for Container {
+  // コンテナ内の２つの要素が等しければTrueを返す
+  fn contains(&self, number_1: &i32, number_2: &i32) -> bool {
+    (&self.0 == number_1) && (&self.1 == number_2)
+  }
+
+  // ひとつ目の値を取得
+  fn first(&self) -> i32 {
+    self.0
+  }
+
+  // 最後（2つめ）の値を取得
+  fn last(&self) -> i32 {
+    self.1
+  }
+}
+
 fn main() {}
