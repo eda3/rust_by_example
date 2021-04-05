@@ -18,4 +18,9 @@ where
   }
 }
 
-fn main() {}
+fn main() {
+  let vec = vec![1, 2, 3];
+
+  vec.print_in_option();
+  // -> Some([1, 2, 3])
+}
