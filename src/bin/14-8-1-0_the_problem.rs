@@ -27,4 +27,13 @@ impl Contains<i32, i32> for Container {
   }
 }
 
+// `A`と`B`は`C`に保持されていることを考慮すると、`A`と`B`を
+// ２度も書くのは面倒
+fn difference<A, B, C>(container: &C) -> i32
+where
+  C: Contains<A, B>,
+{
+  container.last() - container.first()
+}
+
 fn main() {}
