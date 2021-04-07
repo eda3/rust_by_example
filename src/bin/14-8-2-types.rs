@@ -32,4 +32,8 @@ impl Contains for Container {
   }
 }
 
+fn difference<C: Contains>(container: &C) -> i32 {
+  container.last() - container.first()
+}
+
 fn main() {}
