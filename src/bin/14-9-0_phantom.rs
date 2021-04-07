@@ -11,4 +11,37 @@ struct PhantomStruct<A, B> {
   phantom: PhantomData<B>,
 }
 
-fn main() {}
+// 注意点:  ジェネリック型Aに対してはメモリが割り当てられているが、
+//          Bには割り当てられていないため、計算に使うことはできない。
+fn main() {
+  // <char, f32>と型宣言されたPhantomTupleを作成
+  let _tuple1: PhantomTuple<char, f32> = PhantomTuple('Q', PhantomData);
+
+  // <chr, f64>のPhantomTuple。 PhantomDataがいかなる浮動小数点でもないことに注目
+  let _tuple2: PhantomTuple<char, f64> = PhantomTuple('Q', PhantomData);
+
+  // <char, f32>の型が与えられた構造体を作成
+  let _struct1: PhantomStruct<char, f32> = PhantomStruct {
+    first: 'Q',
+    phantom: PhantomData,
+  };
+
+  // 同様に<char, f64>の構造体
+  let _struct2: PhantomStruct<char, f64> = PhantomStruct {
+    first: 'Q',
+    phantom: PhantomData,
+  };
+
+  // コンパイルエラー！型が違うので`==`で比較することができない！
+  // println!("_tuple1 == _tuple2: {}", _tuple1 == _tuple2);
+  // |
+  // |   println!("_tuple1 == _tuple2: {}", _tuple1 == _tuple2);
+  // |                                                 ^^^^^^^ expected `f32`, found `f64`
+
+
+  // コンパイルエラー! 型が違うので比較することができない!
+  // println!("_struct1 == _struct2 yields: {}", _struct1 == _struct2);
+  // |
+  // |   println!("_struct1 == _struct2 yields: {}", _struct1 == _struct2);
+  // |                                                           ^^^^^^^^ expected `f32`, found `f64`
+}
