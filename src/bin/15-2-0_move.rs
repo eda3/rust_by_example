@@ -14,4 +14,24 @@ fn main() {
   // 両方の値はそれぞれ独立に使うことができる。
   println!("xは{}、yは{}", x, y);
   // -> xは5、yは5
+
+  // aはヒープ上の整数へのポインタ
+  let a = Box::new(5i32);
+
+  println!("aの内容:{}", a);
+  // -> aの内容:5
+
+  // aをbに ムーブ する。
+  let b = a;
+
+  // エラー発生！！！
+  // println!("aの内容:{}", a);
+  // |   let a = Box::new(5i32);
+  // |       - move occurs because `a` has type `Box<i32>`, which does not implement the `Copy` trait
+  // ...
+  // |   let b = a;
+  // |           - value moved here
+  // |
+  // |   println!("aの内容:{}", a);
+  // |                          ^ value borrowed here after move
 }
