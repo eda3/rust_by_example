@@ -26,6 +26,7 @@ fn main() {
 
   // エラー発生！！！
   // println!("aの内容:{}", a);
+
   // |   let a = Box::new(5i32);
   // |       - move occurs because `a` has type `Box<i32>`, which does not implement the `Copy` trait
   // ...
@@ -33,5 +34,20 @@ fn main() {
   // |           - value moved here
   // |
   // |   println!("aの内容:{}", a);
+  // |                          ^ value borrowed here after move
+
+  // この関数はヒープメモリ上の所有権を`b`から取る。
+  destroy_box(b);
+  // -> cの内容をデストロイします 5
+
+  // エラー発生！！！
+  // println!("aの内容:{}", b);
+  // |   let b = a;
+  // |       - move occurs because `b` has type `Box<i32>`, which does not implement the `Copy` trait
+  // ...
+  // |   destroy_box(b);
+  // |               - value moved here
+  // ...
+  // |   println!("aの内容:{}", b);
   // |                          ^ value borrowed here after move
 }
