@@ -38,7 +38,6 @@ fn main() {
   // |   println!("_tuple1 == _tuple2: {}", _tuple1 == _tuple2);
   // |                                                 ^^^^^^^ expected `f32`, found `f64`
 
-
   // コンパイルエラー! 型が違うので比較することができない!
   // println!("_struct1 == _struct2 yields: {}", _struct1 == _struct2);
   // |
