@@ -7,4 +7,12 @@ struct Book {
   year: u32,
 }
 
+// この関数はBook型への参照をとる
+fn borrow_book(book: &Book) {
+  println!(
+    "I immutably borrowed {} - {} edition",
+    book.title, book.year
+  );
+}
+
 fn main() {}
