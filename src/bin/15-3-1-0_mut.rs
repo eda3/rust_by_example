@@ -15,4 +15,11 @@ fn borrow_book(book: &Book) {
   );
 }
 
+// この関数はミュータブルなBook型へのミュータブルなリファレンスを取り、
+// `year`を2014へ変更する。
+fn new_edition(book: &mut Book) {
+  book.year = 2014;
+  println!("I mutably borrowed {} - {} edition", book.title, book.year);
+}
+
 fn main() {}
