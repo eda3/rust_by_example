@@ -16,4 +16,25 @@ fn main() {
     borrowed_point.x, another_borrow.y, point.z
   );
   // -> Pointの各値:(0, 0, 0)
+
+  // let mutable_borrow = &mut point;
+  //
+  // 上記はエラーが発生する！
+  // error[E0502]: cannot borrow `point` as mutable
+  //               because it is also borrowed as immutable
+  // |
+  // |   let borrowed_point = &point;
+  // |                        ------ immutable borrow occurs here
+  // ...
+  // |   let mutable_borrow = &mut point;
+  // |                        ^^^^^^^^^^ mutable borrow occurs here
+  // ...
+  // |     borrowed_point.x, another_borrow.y, point.z
+  // |     ---------------- immutable borrow later used here
+
+  println!(
+    "Pointの各値:({}, {}, {})",
+    borrowed_point.x, another_borrow.y, point.z
+  );
+  // -> Pointの各値:(0, 0, 0)
 }
