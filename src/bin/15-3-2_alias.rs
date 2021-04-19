@@ -37,4 +37,32 @@ fn main() {
     borrowed_point.x, another_borrow.y, point.z
   );
   // -> Pointの各値:(0, 0, 0)
+
+  // イミュータブルな参照は、残りのコードでは使用されなくなるので、ミュータブルな参照で再利用することが可能です。
+  let mutable_borrow = &mut point;
+
+  // ミュータブルなリファレンスを介してデータを変更
+  mutable_borrow.x = 5;
+  mutable_borrow.y = 2;
+  mutable_borrow.z = 1;
+
+  // let y = &point.y;
+  //
+  // 上記はエラーが発生する！
+  // error[E0502]: cannot borrow `point.y` as immutable because it is also borrowed as mutable
+  // |
+  // |   let mutable_borrow = &mut point;
+  // |                        ---------- mutable borrow occurs here
+  // ...
+  // |   let y = &point.y;
+  // |           ^^^^^^^^ immutable borrow occurs here
+  // ...
+  // |     mutable_borrow.x, mutable_borrow.y, mutable_borrow.z
+  // |     ---------------- mutable borrow later used here
+
+  println!(
+    "Pointの各値:({}, {}, {})",
+    mutable_borrow.x, mutable_borrow.y, mutable_borrow.z
+  );
+  // -> Pointの各値:(0, 0, 0)
 }
