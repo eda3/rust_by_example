@@ -60,9 +60,33 @@ fn main() {
   // |     mutable_borrow.x, mutable_borrow.y, mutable_borrow.z
   // |     ---------------- mutable borrow later used here
 
+  // println!("Point Zの内容：{}", point.z);
+  //
+  // 上記はエラーが発生する！
+  // println!はイミュータブルなリファレンスを取るためprintできない
+  // error[E0502]: cannot borrow `point.z` as immutable because it is also borrowed as mutable
+  // |
+  // |   let mutable_borrow = &mut point;
+  // |                        ---------- mutable borrow occurs here
+  // ...
+  // |   println!("Point Zの内容：{}", point.z);
+  // |                                 ^^^^^^^ immutable borrow occurs here
+  // ...
+  // |     mutable_borrow.x, mutable_borrow.y, mutable_borrow.z
+  // |     ---------------- mutable borrow later used here
+
+  // ミュータブル参照をイミュータブルとしてprintln!にわたすことはできる
   println!(
     "Pointの各値:({}, {}, {})",
     mutable_borrow.x, mutable_borrow.y, mutable_borrow.z
   );
-  // -> Pointの各値:(0, 0, 0)
+  // -> Pointの各値:(5, 2, 1)
+
+  // ミュータブルリファレンスは残りのコードでは使用されないので再利用することができます。
+  let new_borrowed_point = &point;
+  println!(
+    "Pointの各値:({}, {}, {})",
+    new_borrowed_point.x, new_borrowed_point.y, new_borrowed_point.z
+  );
+  // Pointの各値:(5, 2, 1)
 }
