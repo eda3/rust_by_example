@@ -12,4 +12,19 @@ fn main() {
   let ref_c2 = &c;
 
   println!("*ref_c1 == *ref_c2: {}", *ref_c1 == *ref_c2);
+
+  let point = Point { x: 0, y: 1 };
+  // ref は構造体をデストラクトする際にも有用
+  let _copy_of_x = {
+    // ref_to_x は pointのxフィールドへの参照
+    let Point {
+      x: ref ref_to_x,
+      y: _,
+    } = point;
+
+    // pointのxフィールドへのコピーを返す
+    *ref_to_x
+  };
+  println!("_copy_of_x: {}", _copy_of_x);
+  // -> _copy_of_x: 0
 }
