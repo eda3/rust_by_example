@@ -47,4 +47,16 @@ fn main() {
 
   println!("mutable_point:({}, {})", mutable_point.x, mutable_point.y);
   // -> mutable_point:(0, 2)
+
+  // ポインタを含むミュータブルなタプル
+  let mut mutable_tuple = (Box::new(5u32), 3u32);
+
+  {
+    // mutable_tupleをデストラクトして、lastの値を変更
+    let (_, ref mut last) = mutable_tuple;
+    *last = 2u32;
+  }
+  // -> mutable_tuple: (5, 2)
+
+  println!("mutable_tuple: {:?}", mutable_tuple);
 }
