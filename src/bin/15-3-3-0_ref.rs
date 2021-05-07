@@ -27,4 +27,24 @@ fn main() {
   };
   println!("_copy_of_x: {}", _copy_of_x);
   // -> _copy_of_x: 0
+
+  // pointへのミュータブルなコピー
+  let mut mutable_point = point;
+
+  {
+    // ref は　mutとともに使い、ミュータブルな参照を取ることもできる
+    let Point {
+      x: _,
+      y: ref mut mut_ref_to_y,
+    } = mutable_point;
+
+    // mutable_pointのyというミュータブルなフィールドの値を変更する
+    *mut_ref_to_y = 2;
+  }
+
+  println!("point:({}, {})", point.x, point.y);
+  // -> point:(0, 1)
+
+  println!("mutable_point:({}, {})", mutable_point.x, mutable_point.y);
+  // -> mutable_point:(0, 2)
 }
