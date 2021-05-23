@@ -31,4 +31,22 @@ fn pass_x<'a, 'b>(x: &'a i32, _: &'b i32) -> &'a i32 {
 // その後データはスコープを抜けるとともに破棄される。そのため、
 // 不適切なデータに対する参照を返すことになってしまう。
 
-fn main() {}
+fn main() {
+  let x = 7;
+  let y = 9;
+
+  print_one(&x);
+  // -> print_one: x is 7
+
+  print_multi(&x, &y);
+  // -> print_multi: x is 7, y is 9
+
+  let z = pass_x(&x, &y);
+  print_one(z);
+  // -> print_one: x is 7
+
+  let mut t = 3;
+  add_one(&mut t);
+  print_one(&t);
+  // -> print_one: x is 4
+}
