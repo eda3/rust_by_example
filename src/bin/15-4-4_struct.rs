@@ -11,4 +11,10 @@ struct NamedBorrowed<'a> {
   y: &'a i32,
 }
 
+// i32、あるいはi32への参照のいずれかとなる列挙型
+enum Either<'a> {
+  Num(i32),
+  Ref(&'a i32),
+}
+
 fn main() {}
