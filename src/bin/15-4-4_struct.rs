@@ -4,4 +4,11 @@
 #[derive(Debug)]
 struct Borrowed<'a>(&'a i32);
 
+// 同様に、ここでも参照は構造体よりも長生きでなくてはならない。
+#[derive(Debug)]
+struct NamedBorrowed<'a> {
+  x: &'a i32,
+  y: &'a i32,
+}
+
 fn main() {}
