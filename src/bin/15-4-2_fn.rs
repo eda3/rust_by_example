@@ -16,4 +16,10 @@ fn print_multi<'a, 'b>(x: &'a i32, y: &'b i32) {
   println!("print_multi: x is {}, y is {}", x, y);
 }
 
+// 受け取った参照をそのまま返すことに問題はないが、適切なライフタイム
+// でなくてはならない。
+fn pass_x<'a, 'b>(x: &'a i32, _: &'b i32) -> &'a i32 {
+  x
+}
+
 fn main() {}
