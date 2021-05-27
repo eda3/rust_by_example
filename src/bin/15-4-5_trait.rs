@@ -9,4 +9,8 @@ impl<'a> Default for Borrowed<'a> {
   }
 }
 
-fn main() {}
+fn main() {
+  let b: Borrowed = Default::default();
+  println!("b is {:?}", b);
+  // -> b is Borrowed { x: 10 }
+}
