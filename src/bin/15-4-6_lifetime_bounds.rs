@@ -24,4 +24,13 @@ where
   println!("print_ref(): t is {:?}", t);
 }
 
-fn main() {}
+fn main() {
+  let x = 7;
+  let ref_x = Ref(&x);
+
+  print_ref(&ref_x);
+  // -> print_ref(): t is Ref(7)
+
+  print(ref_x);
+  // -> print_ref(): t is Ref(7)
+}
