@@ -13,4 +13,15 @@ where
 {
   println!("print(): t is {:?}", t);
 }
+
+// Debugを実装しているTへの参照を取る。Tへの参照は
+// 必ず'aよりも長生きでなくてはならない。さらに、'aは
+// 関数自体よりも長生きでなくてはならない
+fn print_ref<'a, T>(t: &'a T)
+where
+  T: Debug + 'a,
+{
+  println!("print_ref(): t is {:?}", t);
+}
+
 fn main() {}
